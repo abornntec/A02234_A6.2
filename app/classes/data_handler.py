@@ -85,7 +85,7 @@ class DataHandler():
                 json.dump(original_json_file, json_file)
             with open(self.file, encoding="utf-8") as json_file:
                 return json.load(json_file)
-        except:
+        except TypeError:
             print("Error writing to file")
             return "Error writing to file"
 

@@ -7,7 +7,7 @@ from app.classes.customer import Customer
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-HOTEL_FILE_PATH = os.path.join(BASE_DIR, "data", "hotels.json")
+HOTEL_FILE_PATH = os.path.join(BASE_DIR, "data", "hotel.json")
 CUSTOMER_FILE_PATH = os.path.join(BASE_DIR, "data", "customers.json")
 
 hotelDataHandler = DataHandler(HOTEL_FILE_PATH)
