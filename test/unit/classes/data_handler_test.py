@@ -247,11 +247,12 @@ class TestDataHandler(unittest.TestCase):
         mock_file.assert_any_call("test.json", "w", encoding="utf-8")
         self.assertEqual(result, self.test_data)
 
-    @patch("builtins.open", side_effect=IOError("Mocked error"))
+    @patch("builtins.open", side_effect=TypeError)
     def test_write_to_file_failure(self, mock_file):
         """Test de write_to_file maneja errores"""
         result = self.data_handler.write_to_file(self.test_data)
         mock_file.assert_called_once()
+        self.assertRaises(TypeError)
         self.assertEqual(result, "Error writing to file")
 
     # Test create ID
@@ -264,6 +265,25 @@ class TestDataHandler(unittest.TestCase):
         '''Metod to test creation of id when file is empty'''
         result = self.data_handler.create_id([])
         self.assertEqual(result, 1)
+
+    # Test is missing
+    def test_is_missing_no_missing(self):
+        '''Metodo para verificar que regresa
+        false si el valor no es nulo o vacio'''
+        result = self.data_handler.is_missing("test")
+        self.assertEqual(result,False)
+
+    def test_is_missing_None(self):
+        '''Metodo para verificar que regresa
+        true si el valor es nulo'''
+        result = self.data_handler.is_missing(None)
+        self.assertEqual(result,True)
+
+    def test_is_missing_empty(self):
+        '''Metodo para verificar que regresa
+        true si el valor es vacio'''
+        result = self.data_handler.is_missing("")
+        self.assertEqual(result,True)
 
 
 if __name__ == "__main__":
