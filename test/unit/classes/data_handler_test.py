@@ -271,19 +271,19 @@ class TestDataHandler(unittest.TestCase):
         '''Metodo para verificar que regresa
         false si el valor no es nulo o vacio'''
         result = self.data_handler.is_missing("test")
-        self.assertEqual(result,False)
+        self.assertEqual(result, False)
 
-    def test_is_missing_None(self):
+    def test_is_missing_none(self):
         '''Metodo para verificar que regresa
         true si el valor es nulo'''
         result = self.data_handler.is_missing(None)
-        self.assertEqual(result,True)
+        self.assertEqual(result, True)
 
     def test_is_missing_empty(self):
         '''Metodo para verificar que regresa
         true si el valor es vacio'''
         result = self.data_handler.is_missing("")
-        self.assertEqual(result,True)
+        self.assertEqual(result, True)
 
 
 if __name__ == "__main__":
