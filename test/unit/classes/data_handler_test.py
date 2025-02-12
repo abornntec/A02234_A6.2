@@ -180,7 +180,7 @@ class TestDataHandler(unittest.TestCase):
         self.assertEqual(result, self.test_data)
 
     @patch("builtins.open", side_effect=FileNotFoundError)
-    def test_file_as_json_file_not_found(self,mock_file):
+    def test_file_as_json_file_not_found(self, mock_file):
         """Test que maneje de manera correcta el error FileNotFoundError"""
         result = self.data_handler.file_as_json()
         mock_file.assert_called_once()
