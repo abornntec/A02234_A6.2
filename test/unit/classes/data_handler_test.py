@@ -7,7 +7,7 @@ import json
 from unittest.mock import mock_open, patch
 from app.classes.data_handler import DataHandler
 
-
+# pylint: disable=too-many-public-methods
 class TestDataHandler(unittest.TestCase):
     '''Calse para probar la clase DataHandler'''
 

@@ -65,7 +65,7 @@ class Reservation():
         reservation_to_modify = self.get_reservation_by_id(reservation_id)
         if reservation_to_modify == "No data found":
             return "Id does not exist"
-        reservation_to_modify["status"] = "canceled"
+        reservation_to_modify["Status"] = "canceled"
         modified_reservation_list = self.data_handler.modify_file(
             reservation_to_modify
             )
@@ -74,7 +74,7 @@ class Reservation():
     def get_reservation_by_id(self, reservation_id):
         '''Metodo para obtener info de reservación'''
         try:
-            if (reservation_id is None or reservation_id == ""):
+            if self.data_handler.is_missing(reservation_id):
                 raise ValueError("Missing data")
             reservation_info = self.data_handler.get_data_by_id(reservation_id)
             return reservation_info
