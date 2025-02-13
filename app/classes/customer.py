@@ -52,7 +52,7 @@ class Customer():
     def get_customer_data(self, customer_id):
         '''Metodo para obtener datos de un cliente'''
         try:
-            if (customer_id is None or customer_id == ""):
+            if self.data_handler.is_missing(customer_id):
                 raise ValueError("Missing data")
             customer_info = self.data_handler.get_data_by_id(customer_id)
             return customer_info

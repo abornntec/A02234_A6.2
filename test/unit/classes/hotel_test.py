@@ -9,7 +9,7 @@ from app.classes.hotel import Hotel
 from app.classes.reservation import Reservation
 
 
-class TestDataHandler(unittest.TestCase):
+class TestHotel(unittest.TestCase):
     '''Calse para probar la clase Hotel'''
 
     def setUp(self):
